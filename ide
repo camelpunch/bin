@@ -1,0 +1,10 @@
+#!/bin/bash
+
+tmux new-window -d -n REPL "cd $1; lein repl"
+tmux split-window -d -h -p 40
+tmux select-pane -t1
+tmux send-keys "cd $1; lein autoexpect" C-m
+tmux select-pane -t0
+tmux send-keys "cd $1; vim" C-m
+tmux send-keys C-p # bring up CtrlP
+
