@@ -9,7 +9,7 @@ while ! nc -z localhost $port; do sleep 1; done
 tmux select-window -t :0
 tmux split-window -d -h -p 40
 tmux select-pane -t1
-tmux send-keys "cd ~/workspace/$1; lein autoexpect" C-m
+tmux send-keys "cd ~/workspace/$1; lein with-profile test autoexpect" C-m
 tmux select-pane -t0
 tmux send-keys "cd ~/workspace/$1; \\vim --servername VIM project.clj" C-m
 tmux send-keys ":Connect nrepl://localhost:$port" C-m C-m
