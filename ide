@@ -10,7 +10,6 @@ while ! nc -z localhost $port; do sleep 1; done
 tmux new-window -d -n servers
 tmux select-window -t :2
 tmux send-keys "cd ~/workspace/$1" C-m
-tmux send-keys "lein datomic start&" C-m
 tmux send-keys "lein ring server" C-m
 tmux select-window -t :0
 tmux split-window -d -h -p 40
